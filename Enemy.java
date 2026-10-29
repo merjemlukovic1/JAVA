@@ -1,71 +1,55 @@
 package Zadaci;
 
-public class Enemy extends GameObject {
-	
-	private String type;
-    private int health;
-    private int damage;
-    
-    
+public class Enemy {
+	private int x, y, width, height, damage;
 
-	public Enemy(int x, int y, int width, int height, String type, int health, int damage) {
-		super(x, y, width, height);
-		setType(type);
-	    setHealth(health);
-	    setDamage(damage);
-	
-		
-	}
+    public Enemy (int x, int y, int width, int height, int damage) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        setDamage(damage);
+    }
 
+    public int getX() {
+        return x;
+    }
 
+    public int getY() {
+        return y;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public int getWidth() {
+        return width;
+    }
 
+    public int getHeight() {
+        return height;
+    }
 
+    public int getDamage() {
+        return damage;
+    }
 
-	public void setType(String type) {
-        if (type == null || type.trim().isEmpty()) {
-            this.type = "Goblin";
-        } else {
-            this.type = type.trim();
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setDamage(int damage) {
+        if (damage >= 0 && damage <= 100) {
+            this.damage = damage;
         }
-	}
-
-
-	public int getHealth() {
-		return health;
-	}
-
-
-
-	public void setHealth(int health) {
-		if (health < 0) this.health = 0;
-        else if (health > 100) this.health = 100;
-        else this.health = health;
-	}
-
-
-
-	public int getDamage() {
-		return damage;
-	}
-
-
-
-	public void setDamage(int damage) {
-		if (damage < 0) this.damage = 0;
-        else if (damage > 100) this.damage = 100;
-        else this.damage = damage;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "Enemy [type=" + type + ", health=" + health + ", damage=" + damage + "]";
-	}
-	
-
+    }
 }
